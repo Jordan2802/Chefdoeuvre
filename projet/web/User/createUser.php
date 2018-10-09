@@ -2,8 +2,8 @@
 
 //on appelle les classe qui vont nous servir
 
-require_once '../src/App/Manager/UserManager.php';
-require_once '../src/App/Entity/User.php';
+require_once '../../src/App/Manager/UserManager.php';
+require_once '../../src/App/Entity/User.php';
 
 //on indique l'espace de nom des classes utilisées
 
@@ -40,11 +40,13 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ajout d'un utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     <script src="main.js"></script>
 </head>
 <body>
     <h1>Insertion d'un utilisateur</h1>
+    <p><a href="../index.html">Retour au sommaire</a></p>
+    
     <p><?= $message?></p>
 </body>
 </html>

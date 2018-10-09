@@ -2,8 +2,8 @@
 
 //on appelle les classe qui vont nous servir
 
-require_once '../src/App/Manager/UserManager.php';
-require_once '../src/App/Entity/User.php';
+require_once '../../src/App/Manager/UserManager.php';
+require_once '../../src/App/Entity/User.php';
 
 //on indique l'espace de nom des classes utilisées
 
@@ -24,11 +24,13 @@ $users = $userManager->readAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>lister les utilisateurs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     
 </head>
 <body>
     <h1>Lister les utilisateurs</h1>
+
+    <p><a href="../index.html">Retour au sommaire</a></p>
 
     <?php if(empty($users)): ?>
         <p>il n'y a aucun utilisateur à afficher</p>
@@ -42,7 +44,11 @@ $users = $userManager->readAll();
                 <?php
                 
                  foreach($users as $user => $value): ?>
-                    <li> <?= $value['Pseudo_user'] ?> <?= $value['Mail_user'] ?> </li>
+                    <li> Pseudo : <?= $value['Pseudo_user'] . "</br> mail: ".$value['Mail_user'] ?> 
+                    - <a href="formUpdate.php?id=<?= $value['ID_user']; ?>">Modifier</a>
+                    - <a href="deleteUser.php?id=<?= $value['ID_user']; ?>">Supprimer</a>
+                    
+                    </li>
                 <?php endforeach; ?>
 
 

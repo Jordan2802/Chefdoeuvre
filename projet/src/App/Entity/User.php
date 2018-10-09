@@ -2,6 +2,10 @@
 
 namespace App\Entity;
 
+
+/**
+ * class qui va permettre de créer des utilisateurs 
+ */
 class User {
 
 
@@ -41,7 +45,8 @@ class User {
      *
      * @return int
      */
-    public function getId(){
+    public function getId()
+    {
         return $this->ID_user;
     }
 
@@ -51,7 +56,8 @@ class User {
      *
      * @return string
      */
-    public function getPseudo(){
+    public function getPseudo()
+    {
         return $this->Pseudo_user;
     }
 
@@ -61,7 +67,8 @@ class User {
          * @param string $Pseudo_user
          * @return User
          */
-    public function setPseudo($Pseudo_user){
+    public function setPseudo($Pseudo_user)
+    {
         $this->Pseudo_user = $Pseudo_user;
         return $this;
     }
@@ -71,7 +78,8 @@ class User {
      *
      * @return string
      */
-    public function getPassword(){
+    public function getPassword()
+    {
         return $this->Password_user;
     }
 
@@ -81,7 +89,8 @@ class User {
      * @param string $Password_user
      * @return User
      */
-    public function setPassword($Password_user){
+    public function setPassword($Password_user)
+    {
         $this->Password_user = $Password_user;
         return $this;
     }
@@ -91,7 +100,8 @@ class User {
      *
      * @return string
      */
-    public function getMail(){
+    public function getMail()
+    {
         return $this->Mail_user;
     }
 
@@ -101,7 +111,8 @@ class User {
      * @param string $Mail_user
      * @return User
      */
-    public function setMail($Mail_user){
+    public function setMail($Mail_user)
+    {
         $this->Mail_user = $Mail_user;
         return $this;
     }

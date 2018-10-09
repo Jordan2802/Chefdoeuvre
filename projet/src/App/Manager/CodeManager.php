@@ -5,13 +5,13 @@
 namespace App\Manager;
 
 use PDO;
-use App\Entity\User;
+use App\Entity\IntCode;
 
 /****************************************** */
 
 
 
-class UserManager{
+class CodeManager{
 
 
     /**
@@ -32,7 +32,7 @@ class UserManager{
     private $pdoStatement;
 
     /**
-     * UserManager  constructor.
+     * CodeManager  constructor.
      * initialisation de la connexion à la base de donnée. 
      */
     public function __construct(){
@@ -46,21 +46,21 @@ class UserManager{
     } 
     
     /**
-     * insert un objet user dans la base de donnée et met à jour l'objet passé en argument en lui 
+     * insert un objet IntCode dans la base de donnée et met à jour l'objet passé en argument en lui 
      * spécifiant un identifiant.
      *
-     * @param User $user    objet de type User passé par référence.
+     * @param IntCode $code    objet de type code passé par référence.
      * @return bool true si l'objet a été inseré, false si une erreur survient
      */
-    private function create(User &$user){
+    private function create(IntCode &$code){
 
-        $this->pdoStatement = $this->pdo->prepare('INSERT INTO user VALUES (NULL, :pseudo, :passwords, :mail) ');
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO code VALUES (NULL, :titre, :descript, :code) ');
 
         //liaison des parametres
 
-        $this->pdoStatement->bindValue(':pseudo', $user->getPseudo(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':passwords', $user->getPassword(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':mail', $user->getMail(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':titre', $code->getTitreCode(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':descript', $code->getDescCode(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':code', $code->getCode(), PDO::PARAM_STR);
 
         //executer la requete
 
@@ -72,7 +72,7 @@ class UserManager{
         else{
             
             $id = $this->pdo->lastInsertId();
-            $user = $this->read($id);
+            $code = $this->read($id);
 
 
             return true;
@@ -82,14 +82,14 @@ class UserManager{
 
 
     /**
-     * Récupère un objet User à partir de l'identifiant
+     * Récupère un objet IntCode à partir de l'identifiant
      *
-     * @param int  $id  identifiant d'un contact
-     * @return bool|User|null false si une erreur survient, un objet user si une sorrespondance est trouvée, Null
+     * @param int  $id  identifiant d'un code
+     * @return bool|IntCode|null false si une erreur survient, un objet code si une correspondance est trouvée, Null
      */
     public function read($id){
 
-      $this->pdoStatement =  $this->pdo->prepare('SELECT * FROM user WHERE ID_user= :id ');
+      $this->pdoStatement =  $this->pdo->prepare('SELECT * FROM code WHERE ID_code= :id ');
 
       //liaison des parametres
 
@@ -101,13 +101,13 @@ class UserManager{
 
       if($executeIsOk){
 
-        $user = $this->pdoStatement-> fetchObject('App\Entity\User');
+        $code = $this->pdoStatement-> fetchObject('App\Entity\IntCode');
 
-        if($user===false){
+        if($code===false){
             return null;
         }
         else{
-            return $user;
+            return $code;
         }
 
       }
@@ -120,17 +120,17 @@ class UserManager{
 
 
     /**
-     * Récupère tous les objets User de la bdd
+     * Récupère tous les objets IntCode de la bdd
      *
-     * @return array|bool tableau d'objet User ou un tableau vide s'il n'y a aucun objet dans la 
+     * @return array|bool tableau d'objet IntCode ou un tableau vide s'il n'y a aucun objet dans la 
      * bdd, ou false si une erreur survient
      */
     public function readAll(){
 
 
-        $this->pdoStatement = $this->pdo->query('SELECT * FROM user ORDER BY Pseudo_user, Mail_user');
+        $this->pdoStatement = $this->pdo->query('SELECT * FROM code ORDER BY Titre_code');
 
-        //construction d'un tableau d'objet de type User
+        //construction d'un tableau d'objet de type IntCode
         
    
 
@@ -141,19 +141,19 @@ class UserManager{
     /**
      * Met à jour un objet stocké en bdd
      *
-     * @param User $user objet de type User
+     * @param IntCode $code objet de type IntCode
      * @return bool true en cas de succès ou false en cas d'erreur
      */
-    private function update(User $user){
+    private function update(IntCode $code){
 
-        $pdoStatement = $this->pdo->prepare('UPDATE user SET Pseudo_user=:pseudo, Password_user=:passwords, mail_user=:mail WHERE ID_user=:id LIMIT 1');
+        $pdoStatement = $this->pdo->prepare('UPDATE code SET Titre_code=:titre, Desc_code=:descript, CODE=:code WHERE ID_code=:id LIMIT 1');
 
         //liaison des parametres
 
-        $pdoStatement->bindValue(':pseudo', $user->getPseudo(), PDO::PARAM_STR);
-        $pdoStatement->bindValue(':passwords', $user->getPassword(), PDO::PARAM_STR);
-        $pdoStatement->bindValue(':mail', $user->getMail(), PDO::PARAM_STR);
-        $pdoStatement->bindValue(':id', $user->getId(), PDO::PARAM_INT);
+        $pdoStatement->bindValue(':titre', $code->getTitreCode(), PDO::PARAM_STR);
+        $pdoStatement->bindValue(':descript', $code->getDescCode(), PDO::PARAM_STR);
+        $pdoStatement->bindValue(':code', $code->getCode(), PDO::PARAM_STR);
+        $pdoStatement->bindValue(':id', $code->getIdCode(), PDO::PARAM_INT);
 
         //execution de la requete
 
@@ -164,14 +164,14 @@ class UserManager{
     /**
      * Supprime un objet stocké en bdd
      *
-     * @param User $user objet de type User
+     * @param IntCode $ucode objet de type IntCode
      * @return bool true en cas de succès ou false en cas d'erreur
      */
-    public function delete(User $user){
+    public function delete(IntCode $code){
         
-        $pdoStatement = $this->pdo->prepare('DELETE  FROM user WHERE ID_user = :id LIMIT 1');
+        $pdoStatement = $this->pdo->prepare('DELETE  FROM code WHERE ID_code = :id LIMIT 1');
 
-        $pdoStatement->bindValue(':id', $user->getId(), PDO::PARAM_INT);
+        $pdoStatement->bindValue(':id', $code->getIdCode(), PDO::PARAM_INT);
 
         //execution de la requete
 
@@ -184,16 +184,16 @@ class UserManager{
      * insere un objet en bdd et crée l'objet passé en argument en lui spécifiant un identifiant
      * ou le met à jour dans la bdd s'il en est issu
      *
-     * @param User $user    objet User passé par référence (&)
+     * @param IntCode $code    objet IntCode passé par référence (&)
      * @return bool true en cas de succes ou false en cas d'erreur
      */
-    public function save(User &$user){
+    public function save(IntCode &$code){
 
-        if(is_null($user->getId())){
-            return $this->create($user);
+        if(is_null($code->getIdCode())){
+            return $this->create($code);
         }
         else{
-            return $this->update($user);
+            return $this->update($code);
         }
 
     }
