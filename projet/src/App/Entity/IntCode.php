@@ -32,10 +32,6 @@ class IntCode
 
 
 
-    /** @var int $ID_user correspond au champs id de l'utilisateur lié au code dans la table code */
-    private $ID_user;
-
-
 
 
     /**

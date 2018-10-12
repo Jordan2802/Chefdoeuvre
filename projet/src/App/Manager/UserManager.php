@@ -54,13 +54,13 @@ class UserManager{
      */
     private function create(User &$user){
 
-        $this->pdoStatement = $this->pdo->prepare('INSERT INTO user VALUES (NULL, :pseudo, :passwords, :mail) ');
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO user VALUES (NULL, :Pseudo_user, :Password_user, :Mail_user) ');
 
         //liaison des parametres
 
-        $this->pdoStatement->bindValue(':pseudo', $user->getPseudo(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':passwords', $user->getPassword(), PDO::PARAM_STR);
-        $this->pdoStatement->bindValue(':mail', $user->getMail(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':Pseudo_user', $user->getPseudo(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':Password_user', $user->getPassword(), PDO::PARAM_STR);
+        $this->pdoStatement->bindValue(':Mail_user', $user->getMail(), PDO::PARAM_STR);
 
         //executer la requete
 
@@ -146,13 +146,13 @@ class UserManager{
      */
     private function update(User $user){
 
-        $pdoStatement = $this->pdo->prepare('UPDATE user SET Pseudo_user=:pseudo, Password_user=:passwords, mail_user=:mail WHERE ID_user=:id LIMIT 1');
+        $pdoStatement = $this->pdo->prepare('UPDATE user SET Pseudo_user=:Pseudo_user, Password_user=:Password_user, mail_user=:Mail_user WHERE ID_user=:id LIMIT 1');
 
         //liaison des parametres
 
-        $pdoStatement->bindValue(':pseudo', $user->getPseudo(), PDO::PARAM_STR);
-        $pdoStatement->bindValue(':passwords', $user->getPassword(), PDO::PARAM_STR);
-        $pdoStatement->bindValue(':mail', $user->getMail(), PDO::PARAM_STR);
+        $pdoStatement->bindValue(':Pseudo_user', $user->getPseudo(), PDO::PARAM_STR);
+        $pdoStatement->bindValue(':Password_user', $user->getPassword(), PDO::PARAM_STR);
+        $pdoStatement->bindValue(':Mail_user', $user->getMail(), PDO::PARAM_STR);
         $pdoStatement->bindValue(':id', $user->getId(), PDO::PARAM_INT);
 
         //execution de la requete
@@ -197,6 +197,9 @@ class UserManager{
         }
 
     }
+
+
+    
 
 
 }

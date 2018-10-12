@@ -2,23 +2,23 @@
 
 //on appelle les classes qui vont nous servir
 
-require_once '../../src/App/Manager/UserManager.php';
-require_once '../../src/App/Entity/User.php';
+require_once '../../src/App/Manager/CodeManager.php';
+require_once '../../src/App/Entity/IntCode.php';
 
 //on indique l'espace de nom des classes utilisées
 
-use App\Entity\User;
-use App\Manager\UserManager;
+use App\Entity\IntCode;
+use App\Manager\CodeManager;
 
-//on récupère l'utilisateur à mettre à jour à partir de l'id passé dans l'url. pas besoin de récuperer l'id car il est géré par la bdd.
+//on récupère le code à mettre à jour à partir de l'id passé dans l'url. pas besoin de récuperer l'id car il est géré par la bdd.
 
-$userManager = new UserManager();
-$user = $userManager->read($_GET['id']);
+$codeManager = new CodeManager();
+$code = $codeManager->read($_GET['id']);
 
-$deleteIsOk = $userManager-> delete($user);
+$deleteIsOk = $codeManager-> delete($code);
 
 if($deleteIsOk){
-    $message = 'l\'utilisateur a été supprimé';
+    $message = 'le code a été supprimé';
 }
 else{
     $message = 'Une erreur est survenue';
@@ -31,13 +31,13 @@ else{
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Suppression d'un utilisateur</title>
+    <title>Suppression d'un code</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     
 </head>
 <body>
-    <h1>Suppression d'un utilisateur</h1>
+    <h1>Suppression d'un code</h1>
 
     <p><a href="../acceuil.html">Retour au sommaire</a></p>
 

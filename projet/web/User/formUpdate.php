@@ -1,6 +1,6 @@
 <?php
 
-//on appelle les classe qui vont nous servir
+//on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';
 require_once '../../src/App/Entity/User.php';
@@ -25,20 +25,20 @@ $user = $userManager->read($_GET['id']);
     <title>Formulaire pour ajouter un utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
-    <script src="main.js"></script>
+   
 </head>
 <body>
 
 <h1>Ajouter un contact</h1>
 
-<p><a href="../index.html">Retour au sommaire</a></p>
+<p><a href="../acceuil.html">Retour au sommaire</a></p>
     <form method="post" action="updateUser.php">
         <p><label for="">Pseudo :</label>
         <input type="text" name="pseudo" id="pseudo" value="<?= $user->getPseudo()?>">
         </p>
         <p>
         <label for="">Password :</label>
-        <input type="text" name="passwords" id="password" value="<?= $user->getPassword()?>"> 
+        <input type="text" name="motDePasse" id="password" value="<?= $user->getPassword()?>"> 
         </p>
         <p>
         <label for="">mail :</label>

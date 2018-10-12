@@ -1,6 +1,6 @@
 <?php
 
-//on appelle les classe qui vont nous servir
+//on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';
 require_once '../../src/App/Entity/User.php';
@@ -14,8 +14,10 @@ use App\Manager\UserManager;
 
 $user = new User();
 
+
+
 $user -> setPseudo( $_POST['pseudo'])
--> setPassword( $_POST['passwords'])
+-> setPassword( $_POST['motDePasse'])
 -> setMail( $_POST['mail']);
 
 //insertion en bdd via le manager
@@ -29,6 +31,7 @@ if($saveIsOk){
 }
 else{
     $message = 'l\'utilisateur n\'a pas été ajouté';
+    
 }
 
 ?>
@@ -41,11 +44,11 @@ else{
     <title>Ajout d'un utilisateur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
-    <script src="main.js"></script>
+    
 </head>
 <body>
     <h1>Insertion d'un utilisateur</h1>
-    <p><a href="../index.html">Retour au sommaire</a></p>
+    <p><a href="../acceuil.html">Retour au sommaire</a></p>
     
     <p><?= $message?></p>
 </body>
