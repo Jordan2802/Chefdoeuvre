@@ -199,6 +199,81 @@ class UserManager{
     }
 
 
+/**
+ * methode pour verifier si l'email existe dans la base de donnée
+ *
+ * @param string $mail
+ * @return bool
+ */
+    public function verifMail($mail){
+
+        $pdoStatement = $this->pdo->prepare('SELECT COUNT(*) FROM user WHERE Mail_user = :mail');
+        $pdoStatement->execute(array(':mail'=>$mail));
+        $mailExist = $pdoStatement->fetch()[0];
+        if ($mailExist == 0) {
+            return true;
+        } else {
+           return false;
+        }
+
+    }
+
+
+    /**
+     * methode pour vérifier si le pseudo existe dans la base de donnée
+     *
+     * @param string $pseudo
+     * @return bool
+     */
+    public function verifPseudo($pseudo){
+
+        $pdoStatement = $this->pdo->prepare('SELECT COUNT(*) FROM user WHERE Pseudo_user = :pseudo');
+        $pdoStatement->execute(array(':pseudo'=>$pseudo));
+        $pseudoExist = $pdoStatement->fetch()[0];
+        if ($pseudoExist == 0) {
+            return true;
+        } else {
+           return false;
+        }
+
+    }
+
+
+    /**
+     * méthode qui vérifie que l'utilisateur qui se connecte existe bien dans la base de donnée.
+     * une session s'ouvre en cas de succes.
+     *
+     * @return void
+     */
+    public function login($pseudo){
+
+        if(!empty($pseudo)){
+            $pdoStatement = $this->pdo->prepare('SELECT * FROM user WHERE Pseudo_user = :pseudo ');
+            $pdoStatement->execute(array(':pseudo'=>$pseudo
+                                                                   
+                )
+            );
+            $count = $pdoStatement->rowCount();
+            if($count>0){
+                
+                $_SESSION['pseudo'] = $pseudo;
+               
+                return $pdoStatement->fetch();
+            }else{
+                $message="false";
+                echo $message;
+            }
+        }
+    }
+
+    
+
+  
+
+
+    
+
+
     
 
 

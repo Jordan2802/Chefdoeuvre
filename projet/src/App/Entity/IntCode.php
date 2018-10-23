@@ -30,6 +30,8 @@ class IntCode
     private $CODE;
 
 
+    /** @var int    $ID_CodeUser correspond au champs id_user dans la table code */
+    private $ID_CodeUser;
 
 
 
@@ -117,5 +119,27 @@ class IntCode
 	{
         $this->CODE = $CODE;
         return $this;
-	}
+    }
+    
+    /**
+     * getter pour l'id du code intégré
+     *
+     * @return string
+     */
+    public function getIdCodeUser()
+	{
+		return $this->ID_CodeUser;
+    }
+    
+      /**
+     * setter pour l'id du code intégré
+     *
+     * @param int $ID_CodeUser
+     * @return IntCode
+     */
+	public function setIdCodeUser($ID_CodeUser)
+	{
+        $this->ID_CodeUser = $ID_CodeUser;
+        return $this;
+    }
 }

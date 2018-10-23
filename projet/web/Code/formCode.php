@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 
 
 <!DOCTYPE html>
@@ -11,21 +12,23 @@
     
 </head>
 <body>
-
+<header>
+   
+</header>
 <h1>Ajouter un code</h1>
 
-<p><a href="../acceuil.html">Retour au sommaire</a></p>
+<p><a href="../accueil.php">Retour à l'accueil</a></p>
     <form method="post" action="createCode.php">
         <p><label for="">Titre :</label>
         <input type="text" name="titre" id="titre">
         </p>
         <p>
         <label for="">Description :</label>
-        <input type="text" name="description" id="description"> 
+        <input type="textarea" name="description" id="description"> 
         </p>
         <p>
         <label for="">Code :</label>
-        <input type="text" name="code" id="code">
+        <input type="textarea" name="code" id="code">
         </p>
         
         

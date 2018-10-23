@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 
 //on appelle les classes qui vont nous servir
 
@@ -16,7 +17,8 @@ $code = new IntCode();
 
 $code -> setTitreCode( $_POST['titre'])
 -> setDescCode( $_POST['description'])
--> setCode( $_POST['code']);
+-> setCode( $_POST['code'])
+-> setIdCodeUser($_SESSION['id']);
 
 //insertion en bdd via le manager
 
@@ -44,8 +46,8 @@ else{
     
 </head>
 <body>
-    <h1>Insertion d'un coder</h1>
-    <p><a href="../acceuil.html">Retour au sommaire</a></p>
+    <h1>Insertion d'un code</h1>
+    <p><a href="../accueil.php">Retour au sommaire</a></p>
     
     <p><?= $message?></p>
 </body>

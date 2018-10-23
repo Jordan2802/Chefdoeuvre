@@ -31,7 +31,7 @@ $user = $userManager->read($_GET['id']);
 
 <h1>Ajouter un contact</h1>
 
-<p><a href="../acceuil.html">Retour au sommaire</a></p>
+<p><a href="../accueil.php">Retour au sommaire</a></p>
     <form method="post" action="updateUser.php">
         <p><label for="">Pseudo :</label>
         <input type="text" name="pseudo" id="pseudo" value="<?= $user->getPseudo()?>">

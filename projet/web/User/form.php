@@ -12,24 +12,29 @@
 </head>
 <body>
 
-<h1>Ajouter un contact</h1>
+<h1>Inscription</h1>
 
-<p><a href="../acceuil.html">Retour au sommaire</a></p>
+<p><a href="../accueil.php">Retour au sommaire</a></p>
+<?php if(isset($_GET['error'])){echo $_GET['error'];}?>
+
+
     <form method="post" action="verifUser.php">
         <p><label for="">Pseudo :</label>
-        <input type="text" name="pseudo" id="pseudo">
+        <input type="text" name="pseudo" id="pseudo" value="<?php if(isset($_GET['pseudo'])){echo $_GET['pseudo'];}?>">
         </p>
         <p>
         <label for="">Mot de passe :</label>
-        <input type="text" name="motDePasse" id="password"> 
+        <input type="password" name="motDePasse" id="password" value="<?php if(isset($_GET['mdp'])){echo $_GET['mdp'];}?>"> 
         </p>
         <p>
         <label for="">Verification du mot de passe :</label>
-        <input type="text" name="verifMotDePasse" id="passwordbis"> 
+        <input type="password" name="verifMotDePasse" id="passwordbis" value="<?php if(isset($_GET['verifpass'])){echo $_GET['verifpass'];}?>"> 
+        
         </p>
         <p>
         <label for="">mail :</label>
-        <input type="email" name="mail" id="mail">
+        <input type="email" name="mail" id="mail" value="<?php if(isset($_GET['mail'])){echo $_GET['mail'];}?>">
+        
         </p>
         
         

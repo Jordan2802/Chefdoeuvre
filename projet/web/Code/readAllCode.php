@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';
@@ -30,7 +30,7 @@ $codes = $codeManager->readAll();
 <body>
     <h1>Lister les codes</h1>
 
-    <p><a href="../acceuil.html">Retour au sommaire</a></p>
+    <p><a href="../accueil.php">Retour au sommaire</a></p>
 
     <?php if(empty($codes)): ?>
         <p>il n'y a aucun code à afficher</p>

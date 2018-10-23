@@ -1,40 +1,6 @@
-<?php
-
-//on appelle les classes qui vont nous servir
-
-require_once '../../src/App/Manager/UserManager.php';
-require_once '../../src/App/Entity/User.php';
-
-//on indique l'espace de nom des classes utilisées
-
-use App\Entity\User;
-use App\Manager\UserManager;
-
-//création d'un nouveau contact à partir des données du formulaire
-
-$user = new User();
 
 
 
-$user -> setPseudo( $_POST['pseudo'])
--> setPassword( $_POST['motDePasse'])
--> setMail( $_POST['mail']);
-
-//insertion en bdd via le manager
-
-$userManager = new UserManager();
-
-$saveIsOk = $userManager-> save($user);
-
-if($saveIsOk){
-    $message= 'l\'utilisateur a été ajouté';
-}
-else{
-    $message = 'l\'utilisateur n\'a pas été ajouté';
-    
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -48,8 +14,8 @@ else{
 </head>
 <body>
     <h1>Insertion d'un utilisateur</h1>
-    <p><a href="../acceuil.html">Retour au sommaire</a></p>
+    <p><a href="../index.php">Retour à la page de connexion</a></p>
     
-    <p><?= $message?></p>
+    <p>merci pour votre inscription</p>
 </body>
 </html>

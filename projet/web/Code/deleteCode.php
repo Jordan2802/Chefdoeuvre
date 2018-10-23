@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';
@@ -39,7 +39,7 @@ else{
 <body>
     <h1>Suppression d'un code</h1>
 
-    <p><a href="../acceuil.html">Retour au sommaire</a></p>
+    <p><a href="../accueil.php">Retour au sommaire</a></p>
 
     <p><?= $message ?></p>
 </body>

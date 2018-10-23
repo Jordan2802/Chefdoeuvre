@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';
@@ -31,7 +31,7 @@ $code = $codeManager->read($_GET['id']);
 
 <h1>Ajouter un code</h1>
 
-<p><a href="../acceuil.html">Retour au sommaire</a></p>
+<p><a href="../accueil.php">Retour au sommaire</a></p>
     <form method="post" action="updateCode.php">
         <p><label for="">Titre :</label>
         <input type="text" name="titre" id="titre" value="<?= $code->getTitreCode()?>">

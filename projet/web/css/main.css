@@ -1,43 +1,55 @@
-*{
-    margin:0;
-    padding:0;
-}
+
 
 /****/
 /*******************header***************/
 /****/
 
-nav{
-    background: lightgray;
-    padding:20px 10px;
-    border-bottom: 2px solid #111;
-    display: flex; 
-    justify-content: space-between;
- }
- nav a{
-     text-decoration: none;
-     color: #111;
- }
- nav a:hover{
-     color: red;
- }
-
-#menu{
-    width: 50%;
-   display: flex; 
-   justify-content: space-between;
-   
+header{
+    width: 100%;
+    margin: auto;
+}
+header p{
+    font-weight: bold;
+    color:#e80041 !important ;
+}
+header p span{
+    font-size: 0.8em;
+    color:#34375b;
+}
+.navbar-nav{
+    margin: auto;
+}
+.navbar-nav .nav-item{
+    margin:0 20px ;
+}
+.dropdown-item{
+    font-weight: bold;
+}
+.dropdown-item:hover{
+    background: #e80041 !important;
+    color: aliceblue!important;
+}
+.btn:hover{
+    color:aliceblue!important;
 }
 
 /****/
 /*******************main*********************/
 /****/
-form{
-    width: 50%;
-    margin: auto;
+
+/****Carousel****/
+
+/****content****/
+
+.container{
+    width: 80%;
     display: flex;
-    flex-direction: column;
 }
+.row, .left{
+    border:1px solid black;
+    margin:5vh;
+}
+
 
 
 /****/

@@ -30,7 +30,7 @@ $users = $userManager->readAll();
 <body>
     <h1>Lister les utilisateurs</h1>
 
-    <p><a href="../acceuil.html">Retour au sommaire</a></p>
+    <p><a href="../accueil.php">Retour au sommaire</a></p>
 
     <?php if(empty($users)): ?>
         <p>il n'y a aucun utilisateur à afficher</p>
