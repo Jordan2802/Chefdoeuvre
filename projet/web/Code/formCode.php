@@ -1,4 +1,22 @@
-<?php session_start(); ?>
+<?php session_start();
+$login =$_SESSION['pseudo'];
+//on appelle les classes qui vont nous servir
+
+require_once '../../src/App/Manager/LanguageManager.php';
+require_once '../../src/App/Entity/Language.php';
+
+//on indique l'espace de nom des classes utilisées
+
+use App\Entity\Language;
+use App\Manager\LanguageManager;
+
+//recuperer les utilisateurs
+
+$languageManager = new LanguageManager();
+$languages = $languageManager->readAll();
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -23,12 +41,23 @@
         <input type="text" name="titre" id="titre">
         </p>
         <p>
+        <label for="">langage :</label>
+        <select name="language">
+        <?php foreach($languages as $language => $value): ?>  
+          <option value="<?= $value['ID_language'];?>"><?= $value['Name_language']; ?></option>
+        
+          <?php endforeach; ?> 
+     </select>
+
+ 
+        </p>
+        <p>
         <label for="">Description :</label>
-        <input type="textarea" name="description" id="description"> 
+        <textarea  name="description" id="description"></textarea> 
         </p>
         <p>
         <label for="">Code :</label>
-        <input type="textarea" name="code" id="code">
+        <textarea  name="code" id="code"></textarea> 
         </p>
         
         

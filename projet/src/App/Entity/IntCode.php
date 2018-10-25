@@ -34,6 +34,10 @@ class IntCode
     private $ID_CodeUser;
 
 
+    /** @var int    $ID_CodeLanguage correspond au champs ID_language dans la table code */
+    private $ID_CodeLanguage;
+
+
 
 
     /**
@@ -140,6 +144,28 @@ class IntCode
 	public function setIdCodeUser($ID_CodeUser)
 	{
         $this->ID_CodeUser = $ID_CodeUser;
+        return $this;
+    }
+
+    /**
+     * getter pour l'id du langage intégré
+     *
+     * @return string
+     */
+    public function getIdCodeLanguage()
+	{
+		return $this->ID_CodeLanguage;
+    }
+    
+      /**
+     * setter pour l'id du langage intégré
+     *
+     * @param int $ID_CodeLanguage
+     * @return IntCode
+     */
+	public function setIdCodeLanguage($ID_CodeLanguage)
+	{
+        $this->ID_CodeLanguage = $ID_CodeLanguage;
         return $this;
     }
 }

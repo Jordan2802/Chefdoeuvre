@@ -1,4 +1,6 @@
-
+<?php 
+include('./Language/readAllLanguage.php')
+ ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,7 +9,7 @@
     <p class="navbar-brand">Simplon Help'Code <br> <span>Bienvenue <?= $login ?></span> </p> 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active ">
-        <a class="nav-link text-body" href="#">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-body" href="accueil.php">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active ">
         <a class="nav-link text-body" href="Code/formCode.php">Ajouter un code</a>
@@ -17,15 +19,15 @@
           Langage
         </a>
         <div class="dropdown-menu bg-light " aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">PHP</a>
-          <a class="dropdown-item" href="#">HTML</a>
-          <a class="dropdown-item" href="#">CSS</a>
-          <a class="dropdown-item" href="#">JAVASCRIPT</a>
-          <a class="dropdown-item" href="#">RUBY</a>
-          <a class="dropdown-item" href="#">JAVA</a>
-          <a class="dropdown-item" href="#">React</a>
-          <a class="dropdown-item" href="#">Symfony</a>
-          <a class="dropdown-item" href="#">JQUERY</a>
+        
+          <?php foreach($languages as $language => $value): ?>  
+            <form methode='post' action="codeLanguage.php" class="dropdown-item" href="">
+             <input type="hidden" name="languageId" value="<?= $value['ID_language'];?>">
+             <label class="lablang" for="<?= $value['ID_language'];?>" type="text"> <?= $value['Name_language']; ?> </label><br>
+             <input type="submit" name="button" id="<?= $value['ID_language']; ?>" class="hidden-button" value="">
+            </form>
+          <?php endforeach; ?> 
+          
         </div>
       </li>
       <li class="nav-item ">

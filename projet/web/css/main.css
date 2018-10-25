@@ -1,37 +1,62 @@
-
-
 /****/
 /*******************header***************/
 /****/
 
-header{
+header {
     width: 100%;
     margin: auto;
 }
-header p{
+
+header p {
     font-weight: bold;
-    color:#e80041 !important ;
+    color: #e80041 !important;
 }
-header p span{
+
+header p span {
     font-size: 0.8em;
-    color:#34375b;
+    color: #34375b;
 }
-.navbar-nav{
+
+.navbar-nav {
     margin: auto;
 }
-.navbar-nav .nav-item{
-    margin:0 20px ;
+
+.navbar-nav .nav-item {
+    margin: 0 20px;
 }
-.dropdown-item{
+
+.dropdown-item {
     font-weight: bold;
+    display:flex!important;
 }
-.dropdown-item:hover{
+
+.dropdown-item:hover {
     background: #e80041 !important;
-    color: aliceblue!important;
+    color: aliceblue !important;
 }
-.btn:hover{
-    color:aliceblue!important;
+
+.btn:hover {
+    color: aliceblue !important;
 }
+
+.dropdown-menu{
+    padding:0!important;
+}
+
+.hidden-button{
+    margin:0;
+    padding:0;
+    border: none;
+    background-color: inherit;
+  }
+
+
+ .lablang{
+      cursor: pointer;
+      text-align: center!important;
+  }
+
+ 
 
 /****/
 /*******************main*********************/
@@ -41,13 +66,15 @@ header p span{
 
 /****content****/
 
-.container{
+.container {
     width: 80%;
     display: flex;
 }
-.row, .left{
-    border:1px solid black;
-    margin:5vh;
+
+.row,
+.left {
+    border: 1px solid black;
+    margin: 5vh;
 }
 
 

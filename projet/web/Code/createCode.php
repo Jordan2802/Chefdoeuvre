@@ -18,7 +18,8 @@ $code = new IntCode();
 $code -> setTitreCode( $_POST['titre'])
 -> setDescCode( $_POST['description'])
 -> setCode( $_POST['code'])
--> setIdCodeUser($_SESSION['id']);
+-> setIdCodeUser($_SESSION['id'])
+-> setIdCodeLanguage($_POST['language']);
 
 //insertion en bdd via le manager
 

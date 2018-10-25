@@ -6,7 +6,7 @@ namespace App\Entity;
 /**
  * classe qui va permettre de créer des codes pour mettre dans la bdd
  */
-class IntCode
+class Language
 {
 
     /**     
@@ -49,7 +49,7 @@ class IntCode
      * @param string $Name_Language
      * @return IntCode
      */
-	public function setTitreCode($Name_Language)
+	public function setNamelanguage($Name_Language)
 	{
         $this->Name_Language = $Name_Language;
         return $this;

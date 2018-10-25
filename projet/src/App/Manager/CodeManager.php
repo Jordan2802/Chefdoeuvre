@@ -54,14 +54,15 @@ class CodeManager{
      */
     private function create(IntCode &$code){
 
-        $this->pdoStatement = $this->pdo->prepare('INSERT INTO code(ID_code, Titre_code, Desc_code, CODE, ID_user )
-                                                     VALUES (NULL, :titre, :descript, :code, :user) ');
+        $this->pdoStatement = $this->pdo->prepare('INSERT INTO code(ID_code, Titre_code, Desc_code, CODE, ID_user, ID_language )
+                                                     VALUES (NULL, :titre, :descript, :code, :user, :langage) ');
         //liaison des parametres
 
         $this->pdoStatement->bindValue(':titre', $code->getTitreCode(), PDO::PARAM_STR);
         $this->pdoStatement->bindValue(':descript', $code->getDescCode(), PDO::PARAM_STR);
         $this->pdoStatement->bindValue(':code', $code->getCode(), PDO::PARAM_STR);
         $this->pdoStatement->bindValue(':user', $code->getIdCodeUser(), PDO::PARAM_INT);
+        $this->pdoStatement->bindValue(':langage', $code->getIdCodeLanguage(), PDO::PARAM_INT);
 
         //executer la requete
 

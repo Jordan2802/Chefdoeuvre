@@ -131,8 +131,6 @@ class UserManager{
         $this->pdoStatement = $this->pdo->query('SELECT * FROM user ORDER BY Pseudo_user, Mail_user');
 
         //construction d'un tableau d'objet de type User
-        
-   
 
         return $this->pdoStatement->fetchAll();
     }
