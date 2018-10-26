@@ -42,7 +42,7 @@ if(!empty($_POST)){
         if(empty($_POST[$name])){
 
             $messageChamps .= "le champ ".$name." est vide. <br>";
-            echo $messageChamps;
+            
 
             $messageError= true;           
 
