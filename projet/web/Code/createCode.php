@@ -48,7 +48,7 @@ else{
 </head>
 <body>
     <h1>Insertion d'un code</h1>
-    <p><a href="../accueil.php">Retour au sommaire</a></p>
+    <p><a href="../User/accueil.php">Retour au sommaire</a></p>
     
     <p><?= $message?></p>
 </body>
