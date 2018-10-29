@@ -3,8 +3,8 @@
 session_start();
 //on appelle les classes qui vont nous servir
 
-require_once '../src/App/Manager/UserManager.php';
-require_once '../src/App/Entity/User.php';
+require_once '../../src/App/Manager/UserManager.php';
+require_once '../../src/App/Entity/User.php';
 
 //on indique l'espace de nom des classes utilisées
 

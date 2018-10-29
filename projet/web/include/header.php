@@ -1,5 +1,6 @@
 <?php 
-include('./Language/readAllLanguage.php')
+include('../Language/readAllLanguage.php');
+
  ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,10 +10,10 @@ include('./Language/readAllLanguage.php')
     <p class="navbar-brand">Simplon Help'Code <br> <span>Bienvenue <?= $login ?></span> </p> 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active ">
-        <a class="nav-link text-body" href="accueil.php">Accueil <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-body" href="../User/accueil.php">Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active ">
-        <a class="nav-link text-body" href="Code/formCode.php">Ajouter un code</a>
+        <a class="nav-link text-body" href="../Code/formCode.php">Ajouter un code</a>
       </li>
       <li class="nav-item dropdown active ">
         <a class="nav-link dropdown-toggle text-body" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -20,11 +21,13 @@ include('./Language/readAllLanguage.php')
         </a>
         <div class="dropdown-menu bg-light " aria-labelledby="navbarDropdownMenuLink">
         
-          <?php foreach($languages as $language => $value): ?>  
-            <form methode='post' action="codeLanguage.php" class="dropdown-item" href="">
-             <input type="hidden" name="languageId" value="<?= $value['ID_language'];?>">
-             <label class="lablang" for="<?= $value['ID_language'];?>" type="text"> <?= $value['Name_language']; ?> </label><br>
-             <input type="submit" name="button" id="<?= $value['ID_language']; ?>" class="hidden-button" value="">
+          <?php foreach($languages as $language => $value):
+            $idlanguage = $value['ID_language'];
+            $namelanguage = $value['Name_language']; ?>  
+            <form methode='post' action="../Language/codeLanguage.php" class="dropdown-item" >
+             <label class="lablang"  for="<?= $idlanguage;?>" type="text"> <?= $namelanguage; ?> </label><br>
+             <input type="hidden" name="languageId" value="<?= $idlanguage;?>">
+             <button type="submit"  id="<?= $idlanguage;?>" class="hidden-button" ></button>
             </form>
           <?php endforeach; ?> 
           

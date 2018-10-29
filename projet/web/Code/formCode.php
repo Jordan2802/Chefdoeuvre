@@ -35,7 +35,7 @@ $languages = $languageManager->readAll();
 </header>
 <h1>Ajouter un code</h1>
 
-<p><a href="../accueil.php">Retour à l'accueil</a></p>
+<p><a href="../User/accueil.php">Retour à l'accueil</a></p>
     <form method="post" action="createCode.php">
         <p><label for="">Titre :</label>
         <input type="text" name="titre" id="titre">

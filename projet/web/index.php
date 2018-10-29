@@ -17,7 +17,7 @@ session_start();
 <body>
     <h1>SIMPLON <br>Help'Code</h1>
     <div class="formCo">
-        <form action="verifSession.php" method="post" name="login">
+        <form action="User/verifSession.php" method="post" name="login">
             <h2>Connexion :</h2>
         <p><?php if(isset($_GET['error'])){echo $_GET['error'];}?></p>
             <input type="text" name="pseudo" placeholder="Votre pseudo"> <br>

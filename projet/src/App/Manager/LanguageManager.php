@@ -57,32 +57,34 @@ class LanguageManager{
         $this->pdoStatement =  $this->pdo->prepare('SELECT * FROM code
                                                     INNER JOIN language
                                                     ON language.ID_language = code.ID_language 
+                                                    INNER JOIN user
+                                                    ON code.ID_user = user.ID_user
                                                     WHERE language.ID_language= :id ');
   
-        //liaison des parametres
-  
-        $this->pdoStatement->bindValue(':id',$id, PDO::PARAM_INT);
-  
-        //éxécution de la requête
-  
-        $executeIsOk = $this->pdoStatement->execute();
-  
-        if($executeIsOk){
-  
-          $language = $this->pdoStatement-> fetchObject('App\Entity\Language');
-  
-          if($language===false){
-              return null;
-          }
-          else{
-              return $language;
-          }
-  
+       //liaison des parametres
+
+      $this->pdoStatement->bindValue(':id',$id, PDO::PARAM_INT);
+
+      //éxécution de la requête
+
+      $executeIsOk = $this->pdoStatement->execute();
+
+      if($executeIsOk){
+
+        $language = $this->pdoStatement-> fetch();
+
+        if($language===false){
+            return null;
         }
         else{
-            //erreur d'execution
-            return false;
+            return $language;
         }
+
+      }
+      else{
+          //erreur d'execution
+          return false;
+      }
   
       }
 
@@ -112,16 +114,34 @@ class LanguageManager{
      * @return array|bool   tableau d'objet Language ou un tableau vide s'il n'y a aucun objet dans la 
      * bdd, ou false si une erreur survient
      */
-    public function language(){
+    public function language($id){
 
-        $this->pdoStatement = $this->pdo->query('SELECT * FROM code
-                                                 INNER JOIN language
-                                                 ON language.ID_language = code.ID_language
-                                                  ');
+        $this->pdoStatement =  $this->pdo->prepare('SELECT * FROM code
+        INNER JOIN language
+        ON language.ID_language = code.ID_language 
+        INNER JOIN user
+        ON code.ID_user = user.ID_user
+        WHERE language.ID_language= :id ');
 
-        //construction d'un tableau d'objet de type Language
-        return $this->pdoStatement->fetchAll();
+        //liaison des parametres
+
+        $this->pdoStatement->bindValue(':id',$id, PDO::PARAM_INT);
+
+        //éxécution de la requête
+
+        $executeIsOk = $this->pdoStatement->execute();
+
+        if($executeIsOk){
+
+            $language = $this->pdoStatement-> fetchAll();
+
+            if($language===false){
+                return null;
+            }
+            else{
+                return $language;
+            }
+        }
     }
-
 
 }
