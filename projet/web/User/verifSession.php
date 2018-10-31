@@ -1,5 +1,5 @@
 <?php
-
+//page qui va vérifié la connexion d'un utilisateur.
 session_start();
 //on appelle les classes qui vont nous servir
 

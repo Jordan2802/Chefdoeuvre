@@ -1,5 +1,5 @@
 <?php
-
+//page qui vérifie les données entrées dans le formulaire d'inscription d'utilisateur.
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';

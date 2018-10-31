@@ -64,23 +64,23 @@ header p span {
 
 /****Carousel****/
 
-/****content****/
+/****/
+/******************accueil.php**************/
+/****/
 
-.container {
-    width: 80%;
-    display: flex;
+.lang{
+    flex-wrap: wrap;
+}
+.langVignette{
+    text-align: center;
+    width: 20%;
+    border: 2px solid #34375b;
+    margin:15px;
+    padding: 15px 0;
+    color:#e80041;
 }
 
-.row,
-.left {
-    border: 1px solid black;
-    margin: 5vh;
-}
 
-.codePrism{
-    margin:auto!important;
-    width: 50%!important;
-}
 
 /****/
 /******************formcode.php**************/
@@ -128,6 +128,26 @@ label{
     margin:10px;
     background: #34375bbe;
     color:#ece8e8;
+}
+
+/****/
+/******************detail.php**************/
+/****/
+.blocDetail{
+    margin-top:20px;
+}
+.descDetail{
+    padding: 10px;
+    text-align: justify;
+    width: 40%;
+    border:2px solid #34375b;
+}
+.descDetail h2{
+    text-align: center;
+    color: #e80041;
+}
+.codeDetail{
+    width: 40%;
 }
 /****/
 /*********************footer*****************/

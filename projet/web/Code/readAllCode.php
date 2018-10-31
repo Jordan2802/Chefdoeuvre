@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+//page ADMIN qui liste tout les codes partagé sur le site.
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';

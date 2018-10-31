@@ -1,5 +1,5 @@
 <?php
-
+//page qui update les information modifié d'un utilisateur
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';

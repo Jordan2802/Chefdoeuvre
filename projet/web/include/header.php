@@ -34,7 +34,7 @@ include('../Language/readAllLanguage.php');
         </div>
       </li>
       <li class="nav-item ">
-        <a class="nav-link disabled active text-body" href="#">Profil</a>
+        <a class="nav-link disabled active text-body" href="../User/profilUser.php">Profil</a>
       </li>
       <li class="nav-item ">
         <a class="nav-link disabled active text-body" href="../User/logout.php">Se deconnecter.</a>

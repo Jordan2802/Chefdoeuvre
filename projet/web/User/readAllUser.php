@@ -1,5 +1,5 @@
 <?php
-
+//page ADMIN qui liste tout les utilisateurs du site
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';

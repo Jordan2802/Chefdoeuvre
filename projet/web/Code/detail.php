@@ -1,6 +1,11 @@
 <?php
+// page qui détail un code selectionné.
 session_start();
 $login =$_SESSION['pseudo'];
+if(!$login){
+    header('location: ../index.php');
+}
+
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';
@@ -38,12 +43,15 @@ $detail = $codeManager->read($_POST['idCode']);
         <?php include('../include/header.php'); ?>
     </header>
     <main>
-        <?php
-    
-    echo($detail['Titre_code']).'<br>';
-    echo($detail['Desc_code']).'<br>';?>
-
-        <pre><code class="language-<?= setLanguageName($detail['ID_language']); ?>"><?=$detail['CODE'];?></code></pre>
+        <div class="blocDetail d-flex justify-content-around ">
+            <div class="descDetail">
+               <h2> <?=$detail['Titre_code'].'<br>';?></h2>
+                <?= $detail['Desc_code'].'<br>';?>
+            </div>
+            <div class="codeDetail">
+                <pre><code class="language-<?= setLanguageName($detail['ID_language']); ?>"><?=$detail['CODE'];?></code></pre>
+            </div>
+        </div>
     </main>
 
     <footer class="d-flex justify-content-around border-top ">

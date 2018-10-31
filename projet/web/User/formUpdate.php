@@ -1,5 +1,5 @@
 <?php
-
+//page qui va permettre de mettre à jour le profil utilisateur à partir du formulaire.
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';

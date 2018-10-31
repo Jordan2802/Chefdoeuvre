@@ -1,5 +1,11 @@
-<?php session_start();
+<?php
+//page qui va permettre l'ajout de code dans la base de donnée par un formulaire.
+session_start();
 $login =$_SESSION['pseudo'];
+if(!$login){
+    header('location: ../index.php');
+}
+
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/LanguageManager.php';

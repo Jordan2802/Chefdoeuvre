@@ -1,5 +1,5 @@
 <?php
-
+//page ADMIN qui va supprimer un utilisateur.
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/UserManager.php';

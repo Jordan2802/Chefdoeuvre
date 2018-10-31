@@ -1,5 +1,11 @@
 <?php
-session_start(); 
+//page qui permet d'ajouter un code en base de donnée.
+session_start();
+$login =$_SESSION['pseudo'];
+if(!$login){
+    header('location: ../index.php');
+}
+
 
 //on appelle les classes qui vont nous servir
 

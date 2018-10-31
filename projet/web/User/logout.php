@@ -1,4 +1,5 @@
 <?php
+//page de déconnexion
 // On récupère la session
 session_start();
 

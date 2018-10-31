@@ -1,3 +1,5 @@
+<!--page de création d'un compte utilisateur-->
+
 <!DOCTYPE html>
 <html>
 

@@ -1,4 +1,5 @@
 <?php
+//page de connexion du site
 session_start();
 ?>
 

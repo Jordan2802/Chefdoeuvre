@@ -1,4 +1,11 @@
 <?php
+//page qui supprime un code de la base de donnée.
+session_start();
+$login =$_SESSION['pseudo'];
+if(!$login){
+    header('location: ../index.php');
+}
+
 
 //on appelle les classes qui vont nous servir
 

@@ -1,5 +1,11 @@
 <?php
-session_start(); 
+//page qui update le code en base de donnée.
+session_start();
+$login =$_SESSION['pseudo'];
+if(!$login){
+    header('location: ../index.php');
+}
+
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';
