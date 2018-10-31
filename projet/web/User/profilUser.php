@@ -5,6 +5,20 @@ $login =$_SESSION['pseudo'];
 if(!$login){
     header('location: ../index.php');
 }
+//on appelle les classes qui vont nous servir
+
+require_once '../../src/App/Manager/UserManager.php';
+require_once '../../src/App/Entity/User.php';
+
+//on indique l'espace de nom des classes utilisées
+
+
+use App\Manager\UserManager;
+
+//on recupere l'utilisteur à mettre à jour à partir de l'id passé dans l'url
+
+$userManager = new UserManager();
+$user = $userManager->read($_SESSION['id']);
 ?>
 
 
@@ -26,7 +40,39 @@ if(!$login){
         <?php include('../include/header.php'); ?>
     </header>
     <main>
+<div class="profil"></div>
+    <div class="profilUser">
+        <p>Pseudo :
+        <?= $user->getPseudo()?>
+        </p>
+        <p>
+        mail :
+        <?= $user->getMail()?>
+        </p>
+        <button class="btn btn-outline-info my-2 my-sm-0 " >Modifier mon mot de passe</button>
+        <form method="post" action="updateUser.php" id="updateProfil">
+        <p><label for="">Pseudo :</label>
+        <input type="text" name="pseudo" id="pseudo" value="<?= $user->getPseudo()?>">
+        </p>
+        <p>
+        <label for="">Password :</label>
+        <input type="text" name="motDePasse" id="password" value="<?= $user->getPassword()?>"> 
+        </p>
+        <p>
+        <label for="">mail :</label>
+        <input type="email" name="mail" id="mail" value="<?= $user->getMail()?>">
+        </p>
+        
+        <input type="hidden" name="id" value="<?= $user->getId()?>">
+        <input type="submit" value="Modifier">
+    </form>
+    
+        
+    </div>
+    <div class="profilCode">
 
+    </div>
+</div>
     </main>
     <footer class="d-flex justify-content-around border-top ">
         <?php include('../include/footer.php'); ?>

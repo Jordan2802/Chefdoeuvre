@@ -74,6 +74,7 @@ header p span {
 .langVignette{
     text-align: center;
     width: 20%;
+    min-width: 300px;
     border: 2px solid #34375b;
     margin:15px;
     padding: 15px 0;
