@@ -14,11 +14,12 @@ use App\Manager\CodeManager;
 //on récupère le code à mettre à jour à partir de l'id passé dans l'url. pas besoin de récuperer l'id car il est géré par la bdd.
 
 $codeManager = new CodeManager();
-$code = $codeManager->read($_POST['id']);
+$code = $codeManager->read($_GET['id']);
 
 $code->setTitreCode($_POST["titre"]);
 $code->setDescCode($_POST["description"]);
 $code->setCode($_POST["code"]);
+
 
 
 //mise à jour de l'objet code

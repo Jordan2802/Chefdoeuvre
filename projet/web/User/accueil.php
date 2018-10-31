@@ -1,7 +1,9 @@
 <?php
 session_start();
 $login =$_SESSION['pseudo'];
-
+if(!$login){
+    header('location: ../index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -109,8 +111,8 @@ $login =$_SESSION['pseudo'];
 
     </main>
 
-    <footer>
-        
+    <footer class="d-flex justify-content-around border-top ">
+    <?php include('../include/footer.php'); ?>
     </footer>
 
 

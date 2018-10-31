@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/conexion.css">
-    <title>Document</title>
+    <title>Help'Code</title>
 </head>
 
 <body>
@@ -27,8 +27,6 @@ session_start();
             <input type="submit" class="button" name="login" value="Se connecter">
             <p>Pas encore de compte? <a href="User/form.php">"Clique ici"</a></p>
         </form>
-        
-
     </div>
 
 </body>

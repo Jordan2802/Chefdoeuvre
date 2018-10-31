@@ -32,7 +32,7 @@ class LanguageManager{
     private $pdoStatement;
 
     /**
-     * CodeManager  constructor.
+     * LanguageManager  constructor.
      * initialisation de la connexion à la base de donnée. 
      */
     public function __construct(){

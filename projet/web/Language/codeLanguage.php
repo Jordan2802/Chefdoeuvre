@@ -27,39 +27,50 @@ use App\Manager\LanguageManager;
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous">
+        crossorigin="anonymous">
 
     <title>Document</title>
 </head>
 
 <body>
     <header>
-        <?php include('../include/header.php');?> 
+        <?php include('../include/header.php');?>
     </header>
 
-    <main>
-    <?php 
+    <main class="contentCodeLang">
+        
+            <?php 
         //recuperer les codes
         $languageManager = new LanguageManager();
         $codeLanguages = $languageManager->language($_GET['languageId']);
         
             foreach ($codeLanguages as $key => $value) { ?>
-                <h1> <?= $value['Titre_code'] ?></h1>
+            <div class="codeLang">
+                <h1>
+                    <?= $value['Titre_code'] ?>
+                </h1>
 
-                <p>Créé par :<?= $value['Pseudo_user'] ?> </p>
+                <p>Créé par :
+                    <?= $value['Pseudo_user'] ?>
+                </p>
                 <form action="../Code/detail.php" method="post">
-                <input type="hidden" name="idCode" value="<?= $value['ID_code'] ?>">
-                <button type="submit">Voir le code</button>
-                
+                    <input type="hidden" name="idCode" value="<?= $value['ID_code'] ?>">
+                    <input type="hidden" name="idLanguage" value="<?= $value['ID_language'] ?>">
+                    <button type="submit" class="btn btn-outline-info my-2 my-sm-0">Voir le code</button>
                 </form>
-            <?php
+            
+        </div>
+        <?php
               
             }  
             
     ?>
-    
+
 
     </main>
+    <footer class="d-flex justify-content-around border-top ">
+        <?php include('../include/footer.php'); ?>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

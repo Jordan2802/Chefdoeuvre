@@ -103,7 +103,7 @@ class CodeManager{
 
       if($executeIsOk){
 
-        $code = $this->pdoStatement-> fetchObject('App\Entity\IntCode');
+        $code = $this->pdoStatement-> fetch();
 
         if($code===false){
             return null;
@@ -166,14 +166,14 @@ class CodeManager{
     /**
      * Supprime un objet stocké en bdd
      *
-     * @param IntCode $ucode objet de type IntCode
+     * @param IntCode $code objet de type IntCode
      * @return bool true en cas de succès ou false en cas d'erreur
      */
-    public function delete(IntCode $code){
+    public function deleteCode($code){
         
         $pdoStatement = $this->pdo->prepare('DELETE  FROM code WHERE ID_code = :id LIMIT 1');
 
-        $pdoStatement->bindValue(':id', $code->getIdCode(), PDO::PARAM_INT);
+        $pdoStatement->bindValue(':id', $code, PDO::PARAM_INT);
 
         //execution de la requete
 

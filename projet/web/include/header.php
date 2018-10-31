@@ -37,7 +37,7 @@ include('../Language/readAllLanguage.php');
         <a class="nav-link disabled active text-body" href="#">Profil</a>
       </li>
       <li class="nav-item ">
-        <a class="nav-link disabled active text-body" href="logout.php">Se deconnecter.</a>
+        <a class="nav-link disabled active text-body" href="../User/logout.php">Se deconnecter.</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

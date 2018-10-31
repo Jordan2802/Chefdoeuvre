@@ -77,8 +77,80 @@ header p span {
     margin: 5vh;
 }
 
+.codePrism{
+    margin:auto!important;
+    width: 50%!important;
+}
 
+/****/
+/******************formcode.php**************/
+/****/
+#formCode{
+    margin-right:20px!important;
+    border: 1px solid black!important;
+    padding: 15px!important;
+    min-width: 45%!important;
+    
+}
+select, #titre, textarea{
+    background: #34375bd7!important;
+    color: antiquewhite!important;
+}
+label{
+    font-weight: 700;
+}
+.descriptionCode{
+    padding:10px;
+    text-align: justify;
+    max-width: 45%;
+    min-width: 25%;
+    margin:0!important;
+    border:1px solid #34375b!important;
+}
+.titreFormC{
+    text-align: center;
+    color:#e80041;
+}
 
+/****/
+/******************CodeLanguage.php**************/
+/****/
+
+.contentCodeLang{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.codeLang{
+    border:2px solid #34375b;
+    padding:10px;
+    width:20%;
+    margin:10px;
+    background: #34375bbe;
+    color:#ece8e8;
+}
 /****/
 /*********************footer*****************/
 /****/
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+}
+
+main {
+    flex: 1;
+}
+footer{
+    margin: 20px;
+}
+ a{
+    text-decoration-line: none!important;
+    color:#000000!important;
+}
+a:hover{
+    color:#e80041!important;
+}

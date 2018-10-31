@@ -37,7 +37,7 @@ class IntCode
     /** @var int    $ID_CodeLanguage correspond au champs ID_language dans la table code */
     private $ID_CodeLanguage;
 
-
+    
 
 
     /**
@@ -49,6 +49,7 @@ class IntCode
 	{
 		return $this->ID_code;
     }
+    
     
 
     /**

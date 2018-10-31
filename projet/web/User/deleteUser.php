@@ -15,7 +15,7 @@ use App\Manager\UserManager;
 $userManager = new UserManager();
 $user = $userManager->read($_GET['id']);
 
-$deleteIsOk = $userManager-> delete($user);
+$deleteIsOk = $userManager->delete($user);
 
 if($deleteIsOk){
     $message = 'l\'utilisateur a été supprimé';

@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+
 //on appelle les classes qui vont nous servir
 
 require_once '../../src/App/Manager/CodeManager.php';
@@ -13,9 +13,8 @@ use App\Manager\CodeManager;
 //on récupère le code à mettre à jour à partir de l'id passé dans l'url. pas besoin de récuperer l'id car il est géré par la bdd.
 
 $codeManager = new CodeManager();
-$code = $codeManager->read($_GET['id']);
 
-$deleteIsOk = $codeManager-> delete($code);
+$deleteIsOk = $codeManager->deleteCode($_GET['id']);
 
 if($deleteIsOk){
     $message = 'le code a été supprimé';
@@ -39,7 +38,7 @@ else{
 <body>
     <h1>Suppression d'un code</h1>
 
-    <p><a href="../accueil.php">Retour au sommaire</a></p>
+    <p><a href="../User/accueil.php">Retour au sommaire</a></p>
 
     <p><?= $message ?></p>
 </body>
