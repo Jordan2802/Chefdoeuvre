@@ -10,6 +10,15 @@ include('../Language/readAllLanguage.php');
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <p class="navbar-brand">Simplon Help'Code <br> <span>Bienvenue <?= $login ?></span> </p> 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <?php
+      if($login==="rhudra"){
+        ?>
+        <li class="nav-item active ">
+        <a class="nav-link text-body" href="../admin/admin.php">Administration <span class="sr-only">(current)</span></a>
+      </li>
+        <?php
+    }
+    ?>
       <li class="nav-item active ">
         <a class="nav-link text-body" href="../User/accueil.php">Accueil <span class="sr-only">(current)</span></a>
       </li>
