@@ -1,13 +1,9 @@
 <?php
 //page qui update le code en base de donnée.
-session_start();
-$login =$_SESSION['pseudo'];
-if(!$login){
-    header('location: ../index.php');
-}
+include_once('../include/session.php');
 
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/CodeManager.php';
 require_once '../../src/App/Entity/IntCode.php';
 
@@ -20,11 +16,11 @@ use App\Manager\CodeManager;
 //on récupère le code à mettre à jour à partir de l'id passé dans l'url. pas besoin de récuperer l'id car il est géré par la bdd.
 
 $codeManager = new CodeManager();
-$code = $codeManager->read($_GET['id']);
+$code = $codeManager->readCode($_POST['id']);
 
-$code->setTitreCode($_POST["titre"]);
-$code->setDescCode($_POST["description"]);
-$code->setCode($_POST["code"]);
+$code->setTitreCode(htmlentities($_POST["titre"]));
+$code->setDescCode(htmlentities($_POST["description"]));
+$code->setCode(htmlentities($_POST["code"]));
 
 
 
@@ -54,7 +50,7 @@ else{
 <body>
     <h1>Mise à jour d'un code</h1>
 
-    <p><a href="../accueil.php">Retour au sommaire</a></p>
+    <p><a href="../User/profilUser.php">Retour au profil</a></p>
 
     
     <p><?= $message ?></p>

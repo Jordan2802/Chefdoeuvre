@@ -6,44 +6,17 @@ namespace App\Manager;
 
 use PDO;
 use App\Entity\User;
+use App\Manager\AllManager;
+
 
 /****************************************** */
 
 
 
-class UserManager{
+class UserManager extends AllManager {
 
 
-    /**
-     * objet PDO lié à la base de données "Intégration_code". elle est stockée dans une variable
-     * pour être utilisé plus facilement dans les différentes méthodes
-     *
-     * @var \PDO $pdo
-     */
-    private $pdo;
-
-
-    /**
-     * objet pdoStatement résultant de l'utilisation des méthodes PDO::query et PDO::prepare.
-     *  il est stocké dans une variable pour faciliter son utilisation
-     *
-     * @var \PDOStatement   $pdoStatement
-     */
-    private $pdoStatement;
-
-    /**
-     * UserManager  constructor.
-     * initialisation de la connexion à la base de donnée. 
-     */
-    public function __construct(){
-
-        $host_name = 'localhost';
-        $database = 'integration_code';
-        $user_name = 'root';
-        $password = '';
-
-        $this->pdo = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
-    } 
+      
     
     /**
      * insert un objet user dans la base de donnée et met à jour l'objet passé en argument en lui 
@@ -216,6 +189,8 @@ class UserManager{
 
     }
 
+ 
+
 
     /**
      * methode pour vérifier si le pseudo existe dans la base de donnée
@@ -246,7 +221,7 @@ class UserManager{
     public function login($pseudo){
 
         if(!empty($pseudo)){
-            $pdoStatement = $this->pdo->prepare('SELECT * FROM user WHERE Pseudo_user = :pseudo ');
+            $pdoStatement = $this->pdo->prepare('SELECT * FROM user WHERE Pseudo_user = :pseudo');
             $pdoStatement->execute(array(':pseudo'=>$pseudo
                                                                    
                 )
@@ -263,16 +238,6 @@ class UserManager{
             }
         }
     }
-
-    
-
-  
-
-
-    
-
-
-    
 
 
 }

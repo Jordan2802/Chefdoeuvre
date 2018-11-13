@@ -13,10 +13,12 @@
 
 <body>
     <main>
+        <div class="createUser">
         <h1>Insertion d'un utilisateur</h1>
         <p><a href="../index.php">Retour à la page de connexion</a></p>
 
         <p>merci pour votre inscription</p>
+        </div>
     </main>
     
 </body>

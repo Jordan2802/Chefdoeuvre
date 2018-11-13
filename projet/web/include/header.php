@@ -1,4 +1,5 @@
 <?php 
+
 include('../Language/readAllLanguage.php');
 
  ?>
@@ -40,34 +41,10 @@ include('../Language/readAllLanguage.php');
         <a class="nav-link disabled active text-body" href="../User/logout.php">Se deconnecter.</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" methode='post' action="../Language/codeLanguage.php">
+      <input class="form-control mr-sm-2" type="search" name="search" placeholder="Rechercher" aria-label="Search">
       <button class="btn btn-outline-info my-2 my-sm-0 " type="submit">Rechercher</button>
     </form>
   </div>
 </nav>
-<!--
-<div>logo</div>
 
-<div><h1>Bonjour User!</h1></div>
-
-<div id="menu">
-    <div>
-        <p><a href="User/form.php">Ajouter un utilisateur</a></p>
-    </div>
-    <div>
-        <p><a href="User/readAllUser.php">Lister tous les utilisateurs</a></p>
-    </div>
-    <div>
-        <p><a href="Code/formCode.php">Ajouter un code</a></p>
-    </div>
-    <div>
-        <p><a href="Code/readAllCode.php">Lister tous les codes</a></p>
-    </div>
-    <div>
-        <p><a href="logout.php">se deconnecter.</a></p>
-    </div>
-
-
-</div>
--->

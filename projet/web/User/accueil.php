@@ -1,10 +1,7 @@
 <?php
 //page d'accueil du site une fois connecté.
-session_start();
-$login =$_SESSION['pseudo'];
-if(!$login){
-    header('location: ../index.php');
-}
+include_once('../include/session.php');
+
 include('../Language/readAllLanguage.php');
 ?>
 
@@ -27,25 +24,22 @@ include('../Language/readAllLanguage.php');
     </header>
 
     <main>
+        <div class="band"></div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="http://placehold.it/350x150" alt="First slide">
+                    <img class="d-block w-100" src="../img/carouprojet.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="http://placehold.it/350x150" alt="Second slide">
+                    <img class="d-block w-100" src="../img/carou2projet.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="http://placehold.it/350x150" alt="Third slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="http://placehold.it/350x150" alt="Fourth slide">
+                    <img class="d-block w-100" src="../img/carou3projet.jpg" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -57,22 +51,25 @@ include('../Language/readAllLanguage.php');
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        <div class="band"></div>
         <div class="lang d-flex justify-content-around">
-        <?php foreach($languages as $language => $value):
+            <?php foreach($languages as $language => $value):
             $idlanguage = $value['ID_language'];
-            $namelanguage = $value['Name_language']; ?> 
-            <div class="langVignette shadow p-3 mb-5 bg-white rounded"> 
-            <h2><?= $namelanguage; ?></h2>
-            <form methode='post' action="../Language/codeLanguage.php"  >
-             <input type="hidden" name="languageId" value="<?= $idlanguage;?>">
-             <button type="submit" class="btn btn-outline-info my-2 my-sm-0"  id="<?= $idlanguage;?>" >Rechercher</button>
-            </form>
+            $namelanguage = $value['Name_language']; ?>
+            <div class="langVignette shadow p-3 mb-5 bg-white rounded">
+                <h2>
+                    <?= $namelanguage; ?>
+                </h2>
+                <form methode='post' action="../Language/codeLanguage.php">
+                    <input type="hidden" name="languageId" value="<?= $idlanguage;?>">
+                    <button type="submit" class="btn btn-outline-info my-2 my-sm-0" id="<?= $idlanguage;?>">Rechercher</button>
+                </form>
             </div>
-          <?php endforeach; ?> 
-          </div>
-        
-        
-        
+            <?php endforeach; ?>
+        </div>
+
+
+
 
 
 
@@ -80,8 +77,8 @@ include('../Language/readAllLanguage.php');
 
     </main>
 
-    <footer class="d-flex justify-content-around border-top ">
-    <?php include('../include/footer.php'); ?>
+    <footer class="d-flex justify-content-around ">
+        <?php include('../include/footer.php'); ?>
     </footer>
 
 

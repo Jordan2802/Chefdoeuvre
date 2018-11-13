@@ -5,45 +5,19 @@
 namespace App\Manager;
 
 use PDO;
+
 use App\Entity\Language;
+use App\Manager\AllManager;
+
 
 /****************************************** */
 
 
 
-class LanguageManager{
+class LanguageManager extends AllManager{
 
 
-    /**
-     * objet PDO lié à la base de données "Intégration_code". elle est stockée dans une variable
-     * pour être utilisé plus facilement dans les différentes méthodes
-     *
-     * @var \PDO $pdo
-     */
-    private $pdo;
-
-
-    /**
-     * objet pdoStatement résultant de l'utilisation des méthodes PDO::query et PDO::prepare.
-     *  il est stocké dans une variable pour faciliter son utilisation
-     *
-     * @var \PDOStatement   $pdoStatement
-     */
-    private $pdoStatement;
-
-    /**
-     * LanguageManager  constructor.
-     * initialisation de la connexion à la base de donnée. 
-     */
-    public function __construct(){
-
-        $host_name = 'localhost';
-        $database = 'integration_code';
-        $user_name = 'root';
-        $password = '';
-
-        $this->pdo = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
-    } 
+    
 
 
      /**
@@ -142,6 +116,25 @@ class LanguageManager{
                 return $language;
             }
         }
+    }
+
+
+    /**
+     * méthode qui permet de faire une recherche par titre de code.
+     *
+     * @param string $search
+     * @return bool
+     */
+    public function search($search){
+
+        $this->pdoStatement =  $this->pdo->query('SELECT * FROM code
+        INNER JOIN language
+        ON language.ID_language = code.ID_language 
+        INNER JOIN user
+        ON code.ID_user = user.ID_user
+        WHERE Titre_code LIKE  "%'.$search.'%" ');
+
+        return $this->pdoStatement->fetchAll();
     }
 
 }

@@ -6,44 +6,17 @@ namespace App\Manager;
 
 use PDO;
 use App\Entity\IntCode;
+use App\Manager\AllManager;
+
 
 /****************************************** */
 
 
 
-class CodeManager{
+class CodeManager extends AllManager{
 
 
-    /**
-     * objet PDO lié à la base de données "Intégration_code". elle est stockée dans une variable
-     * pour être utilisé plus facilement dans les différentes méthodes
-     *
-     * @var \PDO $pdo
-     */
-    private $pdo;
-
-
-    /**
-     * objet pdoStatement résultant de l'utilisation des méthodes PDO::query et PDO::prepare.
-     *  il est stocké dans une variable pour faciliter son utilisation
-     *
-     * @var \PDOStatement   $pdoStatement
-     */
-    private $pdoStatement;
-
-    /**
-     * CodeManager  constructor.
-     * initialisation de la connexion à la base de donnée. 
-     */
-    public function __construct(){
-
-        $host_name = 'localhost';
-        $database = 'integration_code';
-        $user_name = 'root';
-        $password = '';
-
-        $this->pdo = new PDO("mysql:host=$host_name; dbname=$database;", $user_name, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
-    } 
+   
     
     /**
      * insert un objet IntCode dans la base de donnée et met à jour l'objet passé en argument en lui 
@@ -87,7 +60,7 @@ class CodeManager{
      * Récupère un objet IntCode à partir de l'identifiant
      *
      * @param int  $id  identifiant d'un code
-     * @return bool|IntCode|null false si une erreur survient, un objet code si une correspondance est trouvée, Null
+     * @return bool|IntCode|null false si une erreur survient, un fetch de code si une correspondance est trouvée, Null
      */
     public function read($id){
 
@@ -120,6 +93,42 @@ class CodeManager{
 
     }
 
+    /**
+     * Récupère un objet IntCode à partir de l'identifiant
+     *
+     * @param int  $id  identifiant d'un code
+     * @return bool|IntCode|null false si une erreur survient, un objet code si une correspondance est trouvée, Null
+     */
+    public function readCode($id){
+
+        $this->pdoStatement =  $this->pdo->prepare('SELECT * FROM code WHERE ID_code= :id ');
+  
+        //liaison des parametres
+  
+        $this->pdoStatement->bindValue(':id',$id, PDO::PARAM_INT);
+  
+        //éxécution de la requête
+  
+        $executeIsOk = $this->pdoStatement->execute();
+  
+        if($executeIsOk){
+  
+          $code = $this->pdoStatement-> fetchObject('App\Entity\IntCode');
+  
+          if($code===false){
+              return null;
+          }
+          else{
+              return $code;
+          }
+  
+        }
+        else{
+            //erreur d'execution
+            return false;
+        }
+  
+      }
 
     /**
      * Récupère tous les objets IntCode de la bdd
@@ -181,6 +190,24 @@ class CodeManager{
 
     }
 
+    /**
+     * Supprime tout les codes qu'un utilisateur a mis sur le site
+     *
+     * @param IntCode $id objet de type IntCode
+     * @return bool true en cas de succès ou false en cas d'erreur
+     */
+    public function deleteAllCode($id){
+        
+        $pdoStatement = $this->pdo->prepare('DELETE  FROM code WHERE ID_user = :id');
+
+        $pdoStatement->bindValue(':id', $id, PDO::PARAM_INT);
+
+        //execution de la requete
+
+        return $pdoStatement->execute();
+
+    }
+
 
     /**
      * insere un objet en bdd et crée l'objet passé en argument en lui spécifiant un identifiant
@@ -200,6 +227,47 @@ class CodeManager{
 
     }
 
+
+    /**
+     * permet de lire les codes qui sont lié à l'utilisateur à partir de sa page profil
+     *
+     * @param int $idUser
+     * @return bool|Intcode|null false si une erreur survient.
+     */
+    public function codeUser($idUser){
+
+        $this->pdoStatement =  $this->pdo->prepare('SELECT * FROM code
+                                                    INNER JOIN language
+                                                    ON language.ID_language = code.ID_language 
+                                                    INNER JOIN user
+                                                    ON code.ID_user = user.ID_user
+                                                    WHERE user.ID_user= :id ');
+
+    $this->pdoStatement->bindValue(':id',$idUser, PDO::PARAM_INT);
+
+        //éxécution de la requête
+
+      $executeIsOk = $this->pdoStatement->execute();
+
+      if($executeIsOk){
+
+        $code = $this->pdoStatement-> fetchAll();
+
+        if($code===false){
+            return null;
+        }
+        else{
+            return $code;
+        }
+
+      }
+      else{
+          //erreur d'execution
+          return false;
+      }
+
+    
+    }
 
 
 }

@@ -1,4 +1,39 @@
 /****/
+/*******************general***************/
+/****/
+
+h1{
+    color: #e80041!important;
+}
+p{
+    color: #34375b!important;
+}
+.creaForm, .createUser{
+    position: absolute;
+     margin:100px auto;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+    background:white;
+    width: 50%;
+    padding: 20px;
+    border: 2px solid #e80041;
+    min-width: 300px;
+}
+.creaForm h1{
+    text-align: center;
+}
+.creaForm form{
+    width: 45%;
+    min-width: 230px;
+    margin: auto;
+}
+.creaForm form input{
+    width: 100%;
+    min-width: 230px;
+}
+/****/
 /*******************header***************/
 /****/
 
@@ -27,7 +62,7 @@ header p span {
 
 .dropdown-item {
     font-weight: bold;
-    display:flex!important;
+    display: flex !important;
 }
 
 .dropdown-item:hover {
@@ -39,139 +74,257 @@ header p span {
     color: aliceblue !important;
 }
 
-.dropdown-menu{
-    padding:0!important;
+.dropdown-menu {
+    padding: 0 !important;
 }
 
-.hidden-button{
-    margin:0;
-    padding:0;
+.hidden-button {
+    margin: 0;
+    padding: 0;
     border: none;
     background-color: inherit;
-  }
+}
 
 
- .lablang{
-      cursor: pointer;
-      text-align: center!important;
-  }
+.lablang {
+    cursor: pointer;
+    text-align: center !important;
+}
 
- 
+
 
 /****/
 /*******************main*********************/
 /****/
 
+
+main{
+    background-color: #34375b;
+}
 /****Carousel****/
 
 /****/
 /******************accueil.php**************/
 /****/
 
-.lang{
+.lang {
+    margin-top: 100px;
     flex-wrap: wrap;
 }
-.langVignette{
+
+.langVignette {
     text-align: center;
     width: 20%;
     min-width: 300px;
-    border: 2px solid #34375b;
-    margin:15px;
+    border: 2px solid #e80041;
+    margin: 15px;
     padding: 15px 0;
-    color:#e80041;
+    color: #e80041;
+}
+
+.band{
+    width: 100%;
+    height: 75px;
+    background: #e80041;
+    border: 1px solid #e80041;
+}
+
+/****/
+/******************profilUser.php**************/
+/****/
+.cacher {
+    visibility: hidden;
+}
+
+.updateProfil {
+    margin-top: 20px;
+}
+.updateProfil input{
+    float: right;
+}
+.profilUser p{
+    font-weight: bolder;
 }
 
 
+.profilUser,
+.profilCode {
+    width: 45%;
+    min-width: 300px;
+}
 
+.profil,.profilCode {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.profilCode{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.codeUser{
+    width: 45%;
+    min-width: 240px;
+}
+.profilCode h2{
+    width: 100%;
+    text-align: center;
+}
+.profilUser,.codeUser,.profilCode h2{
+    background:white;
+    margin: 10px;
+    border: 2px solid #e80041;
+    padding: 10px;
+}
+.codeUser a{
+    color: #ddecee!important;
+}
+/****/
+/******************formcodeupdate.php**************/
+/****/
+.formCodeUpdate{
+    background:white;
+    width: 50%;
+    margin:auto;
+    padding: 20px;
+    border: 2px solid #e80041;
+}
 /****/
 /******************formcode.php**************/
 /****/
-#formCode{
-    margin-right:20px!important;
-    border: 1px solid black!important;
-    padding: 15px!important;
-    min-width: 45%!important;
-    
+#formCode {
+    border: 1px solid black !important;
+    padding: 15px !important;
+    width: 45%;
+    min-width: 450px;
 }
-select, #titre, textarea{
-    background: #34375bd7!important;
-    color: antiquewhite!important;
+
+.descriptionCode, #formCode{
+    background: white;
+    border: 2px solid #e80041!important;
+    margin-bottom: 30px;
 }
-label{
+select,
+#titre,
+textarea {
+    background: #ece8e8e5 !important;
+    color: #34375b !important;
+}
+
+label {
     font-weight: 700;
 }
-.descriptionCode{
-    padding:10px;
+
+.descriptionCode {
+    padding: 10px;
     text-align: justify;
     max-width: 45%;
-    min-width: 25%;
-    margin:0!important;
-    border:1px solid #34375b!important;
+    min-width: 450px;
+    
 }
-.titreFormC{
+
+.titreFormC {
+    width: 50%;
+    min-width: 450px;
+    margin:10px auto;
+    background: white;
+    border: 2px solid #e80041;
     text-align: center;
-    color:#e80041;
+    color: #e80041;
 }
 
 /****/
 /******************CodeLanguage.php**************/
 /****/
 
-.contentCodeLang{
+.contentCodeLang {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
-.codeLang{
-    border:2px solid #34375b;
-    padding:10px;
-    width:20%;
-    margin:10px;
-    background: #34375bbe;
-    color:#ece8e8;
+
+.codeLang {
+    border: 2px solid #e80041;
+    padding: 10px;
+    width: 350px;
+    min-width: 200px;
+    height: 210px;
+    margin: 10px;
+    background: white;
+    color: #ece8e8;
+    text-align: center;
+}
+
+.codeLang p{
+    color:#34375b!important;
+}
+#titreCode {
+    color: #e80041 !important;
+    text-shadow: 1px 1px 2px #ece8e8;
+}
+
+#nameLang {
+    font-size: 1.2em;
+    text-decoration: underline;
 }
 
 /****/
 /******************detail.php**************/
 /****/
-.blocDetail{
-    margin-top:20px;
+.blocDetail {
+    margin-top: 20px;
 }
-.descDetail{
+
+.descDetail {
     padding: 10px;
     text-align: justify;
     width: 40%;
-    border:2px solid #34375b;
+    background: white;
+    border: 2px solid #e80041;
 }
-.descDetail h2{
+
+.descDetail h2, .titreFormC h1 {
     text-align: center;
     color: #e80041;
 }
-.codeDetail{
+
+.codeDetail {
     width: 40%;
 }
+
 /****/
 /*********************footer*****************/
 /****/
 
+.bloc {
+    width: 350px;
+    min-width: 200px;
+}
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
+
 }
 
 main {
     flex: 1;
 }
-footer{
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
     margin: 20px;
 }
- a{
-    text-decoration-line: none!important;
-    color:#000000!important;
+
+a {
+    text-decoration-line: none !important;
+    color: #000000 !important;
 }
-a:hover{
-    color:#e80041!important;
+
+a:hover {
+    color: #e80041 !important;
 }

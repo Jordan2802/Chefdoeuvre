@@ -1,13 +1,9 @@
 <?php
 //page qui va permettre l'ajout de code dans la base de donnée par un formulaire.
-session_start();
-$login =$_SESSION['pseudo'];
-if(!$login){
-    header('location: ../index.php');
-}
+include_once('../include/session.php');
 
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/LanguageManager.php';
 require_once '../../src/App/Entity/Language.php';
 
@@ -42,6 +38,7 @@ $languages = $languageManager->readAll();
     <header>
         <?php include('../include/header.php'); ?>
     </header>
+    <main>
     <h1 class="titreFormC">Ajouter un code</h1>
     <div class="contentFormC d-flex justify-content-around flex-wrap">
         <div class="descriptionCode">
@@ -100,7 +97,8 @@ $languages = $languageManager->readAll();
             </form>
         </div>
     </div>
-    <footer class="d-flex justify-content-around border-top ">
+    </main>
+    <footer class="d-flex justify-content-around ">
     <?php include('../include/footer.php'); ?>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

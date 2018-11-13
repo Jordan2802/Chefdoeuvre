@@ -20,6 +20,7 @@ session_start();
     <div class="formCo">
         <form action="User/verifSession.php" method="post" name="login">
             <h2>Connexion :</h2>
+            
         <p><?php if(isset($_GET['error'])){echo $_GET['error'];}?></p>
             <input type="text" name="pseudo" placeholder="Votre pseudo"> <br>
             <input type="password" name="password" placeholder="Votre mot de passe"> <br>

@@ -1,13 +1,9 @@
 <?php
 // page qui détail un code selectionné.
-session_start();
-$login =$_SESSION['pseudo'];
-if(!$login){
-    header('location: ../index.php');
-}
+include_once('../include/session.php');
 
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/CodeManager.php';
 require_once '../../src/App/Entity/IntCode.php';
 include('namePrism.php');
@@ -45,8 +41,12 @@ $detail = $codeManager->read($_POST['idCode']);
     <main>
         <div class="blocDetail d-flex justify-content-around ">
             <div class="descDetail">
-               <h2> <?=$detail['Titre_code'].'<br>';?></h2>
-                <?= $detail['Desc_code'].'<br>';?>
+                <h2>
+                    <?=$detail['Titre_code'].'<br>';?>
+                </h2>
+                <p>
+                    <?= $detail['Desc_code'].'<br>';?>
+                </p>
             </div>
             <div class="codeDetail">
                 <pre><code class="language-<?= setLanguageName($detail['ID_language']); ?>"><?=$detail['CODE'];?></code></pre>
@@ -54,7 +54,7 @@ $detail = $codeManager->read($_POST['idCode']);
         </div>
     </main>
 
-    <footer class="d-flex justify-content-around border-top ">
+    <footer class="d-flex justify-content-around ">
         <?php include('../include/footer.php'); ?>
     </footer>
 

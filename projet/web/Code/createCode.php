@@ -1,14 +1,10 @@
 <?php
 //page qui permet d'ajouter un code en base de donnée.
-session_start();
-$login =$_SESSION['pseudo'];
-if(!$login){
-    header('location: ../index.php');
-}
+include_once('../include/session.php');
 
 
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/CodeManager.php';
 require_once '../../src/App/Entity/IntCode.php';
 
@@ -68,7 +64,7 @@ else{
             <?= $message?>
         </p>
     </main>
-    <footer class="d-flex justify-content-around border-top ">
+    <footer class="d-flex justify-content-around ">
         <?php include('../include/footer.php'); ?>
     </footer>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

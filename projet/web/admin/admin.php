@@ -1,7 +1,9 @@
 <?php
+
+include_once('verifAdmin.php');
 //page ADMIN qui liste tout les utilisateurs du site
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/UserManager.php';
 require_once '../../src/App/Entity/User.php';
 
@@ -30,7 +32,7 @@ $users = $userManager->readAll();
 <body>
     <h1>Lister les utilisateurs</h1>
 
-    <p><a href="../accueil.php">Retour au sommaire</a></p>
+    <p><a href="../User/accueil.php">Accueil du site</a></p>
 
     <?php if(empty($users)): ?>
         <p>il n'y a aucun utilisateur à afficher</p>
@@ -47,6 +49,7 @@ $users = $userManager->readAll();
                     <li> Pseudo : <?= $value['Pseudo_user'] . "</br> mail: ".$value['Mail_user'] ?> 
                     - <a href="formUpdate.php?id=<?= $value['ID_user']; ?>">Modifier</a>
                     - <a href="deleteUser.php?id=<?= $value['ID_user']; ?>">Supprimer</a>
+                    - <a href="userCode.php?id=<?= $value['ID_user']; ?>">Code</a>
                     
                     </li>
                 <?php endforeach; ?>

@@ -2,7 +2,7 @@
 <?php
 
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/LanguageManager.php';
 require_once '../../src/App/Entity/Language.php';
 

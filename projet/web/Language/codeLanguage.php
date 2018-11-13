@@ -1,13 +1,9 @@
 <?php
 //cette page affichera les codes triés par langage de programmation.
-session_start();
-$login =$_SESSION['pseudo'];
-
-if(!$login){
-    header('location: ../index.php');
-}
+include_once('../include/session.php');
 //on appelle les classes qui vont nous servir
 
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/LanguageManager.php';
 require_once '../../src/App/Entity/Language.php';
 
@@ -42,12 +38,14 @@ use App\Manager\LanguageManager;
         
             <?php 
         //recuperer les codes
+        if(isset($_GET['languageId'])){
+ 
         $languageManager = new LanguageManager();
         $codeLanguages = $languageManager->language($_GET['languageId']);
         
             foreach ($codeLanguages as $key => $value) { ?>
             <div class="codeLang ">
-                <h1>
+                <h1 id="titreCode">
                     <?= $value['Titre_code'] ?>
                 </h1>
 
@@ -64,12 +62,41 @@ use App\Manager\LanguageManager;
         <?php
               
             }  
+        }elseif (isset($_GET['search'])) {
             
-    ?>
+            $searchLanguage = new LanguageManager();
+            $search = $_GET['search'];
+            $searchOk = $searchLanguage->search($search);
+            
+            foreach ($searchOk as $key => $value) {  ?>
+
+                <div class="codeLang ">
+                <h1 id="titreCode">
+                    <?= $value["Titre_code"] ?>
+                </h1>
+                <p id="nameLang">
+                    <?= $value["Name_language"] ?>
+            </p>
+
+                <p>Créé par :
+                    <?= $value["Pseudo_user"] ?>
+                </p>
+                <form action="../Code/detail.php" method="post">
+                    <input type="hidden" name="idCode" value="<?= $value['ID_code'] ?>">
+                    <input type="hidden" name="idLanguage" value="<?= $value['ID_language'] ?>">
+                    <button type="submit" class="btn btn-outline-info my-2 my-sm-0">Voir le code</button>
+                </form>
+            
+        </div>
+        <?php
+              
+            }
+        }
+            ?>
 
 
     </main>
-    <footer class="d-flex justify-content-around border-top ">
+    <footer class="d-flex justify-content-around ">
         <?php include('../include/footer.php'); ?>
     </footer>
 

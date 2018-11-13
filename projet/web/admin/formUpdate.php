@@ -1,7 +1,8 @@
 <?php
+include_once('verifAdmin.php');
 //page qui va permettre de mettre à jour le profil utilisateur à partir du formulaire.
 //on appelle les classes qui vont nous servir
-
+require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/UserManager.php';
 require_once '../../src/App/Entity/User.php';
 
@@ -31,7 +32,7 @@ $user = $userManager->read($_GET['id']);
 
 <h1>Ajouter un contact</h1>
 
-<p><a href="../accueil.php">Retour au sommaire</a></p>
+<p><a href="admin.php">Retour à l'admin</a></p>
     <form method="post" action="updateUser.php">
         <p><label for="">Pseudo :</label>
         <input type="text" name="pseudo" id="pseudo" value="<?= $user->getPseudo()?>">
