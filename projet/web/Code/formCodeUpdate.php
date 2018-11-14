@@ -32,8 +32,18 @@ $code = $codeManager->read($_POST['idCode']);
 <body>
 
 <h1>Modifier un code</h1>
+<?php 
+    if($login==="rhudra"){
+        ?> 
+            <p><a href="../admin/admin.php">Retour admin</a></p>
+        <?php
+    }else{
+        ?> 
+            <p><a href="../User/profilUser.php">Retour au profil</a></p>
+        <?php
+    }
+?>
 
-<p><a href="../User/profilUser.php">Retour au profil</a></p>
     <form method="post" action="updateCode.php" class="formCodeUpdate">
         <p><label for="">Titre :</label>
         <input type="text" name="titre" id="titre" value="<?= $code['Titre_code']?>" >
