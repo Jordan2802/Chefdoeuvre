@@ -1,4 +1,5 @@
 <?php
+// function qui permet de définir le langage utilisé pour le rendu en Prism
 function setLanguageName($id){
     $cssL="css";
     $htmlL="markup";

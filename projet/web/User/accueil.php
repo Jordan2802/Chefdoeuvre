@@ -15,6 +15,7 @@ include('../Language/readAllLanguage.php');
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Accueil</title>
 </head>
 
@@ -55,13 +56,17 @@ include('../Language/readAllLanguage.php');
         <div class="lang d-flex justify-content-around">
             <?php foreach($languages as $language => $value):
             $idlanguage = $value['ID_language'];
+            $imglang = $value['imageLang'];
             $namelanguage = $value['Name_language']; ?>
-            <div class="langVignette shadow p-3 mb-5 bg-white rounded">
+            <div class="langVignette shadow p-3 mb-5  rounded">
                 <h2>
                     <?= $namelanguage; ?>
                 </h2>
                 <form methode='post' action="../Language/codeLanguage.php">
                     <input type="hidden" name="languageId" value="<?= $idlanguage;?>">
+                    <div class="imglang">
+                        <img  src="../img/<?= $imglang; ?>" alt="img <?= $namelanguage;?>"><br>
+                    </div>
                     <button type="submit" class="btn btn-outline-info my-2 my-sm-0" id="<?= $idlanguage;?>">Rechercher</button>
                 </form>
             </div>

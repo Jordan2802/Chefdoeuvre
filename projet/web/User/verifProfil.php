@@ -1,7 +1,7 @@
 <?php
 session_start();
 $login =$_SESSION['pseudo'];
-//page qui vérifie les données entrées dans le formulaire d'inscription d'utilisateur.
+//page qui vérifie les données entrées dans le formulaire de modification des données de l'utilisateur.
 //on appelle les classes qui vont nous servir
 require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/UserManager.php';

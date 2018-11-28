@@ -15,31 +15,21 @@ class User {
 
      private   $ID_user;
 	
-
-
      /**
       *  @var string $Pseudo_user    pseudo de l'utilisateur
       */
      private   $Pseudo_user;
-
-	
-
 
      /**
       *  @var string $Password_user     mot de passe de l'utilisateur 
       */
      private $Password_user;
 
-
-
-
      /** 
       * @var string $Mail_user      email de l'utilisateur 
       */
      private $Mail_user;
 
-     
-    
     /**
      * getter pour l'id de l'utilisateur
      *
@@ -50,7 +40,6 @@ class User {
         return $this->ID_user;
     }
 
-    
     /**
      * getter pour le pseudo de l'utilisateur
      *
@@ -61,12 +50,12 @@ class User {
         return $this->Pseudo_user;
     }
 
-        /**
-         * setter pour le pseudo de l'utilisateur
-         *
-         * @param string $Pseudo_user
-         * @return User
-         */
+     /**
+     * setter pour le pseudo de l'utilisateur
+     *
+     * @param string $Pseudo_user
+     * @return User
+     */
     public function setPseudo($Pseudo_user)
     {
         $this->Pseudo_user = $Pseudo_user;

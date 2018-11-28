@@ -28,6 +28,7 @@ $detail = $codeManager->read($_POST['idCode']);
         crossorigin="anonymous">
     <link href="../css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <title>
         <?= $detail['Titre_code']; ?>

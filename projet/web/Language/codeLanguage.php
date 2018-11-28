@@ -6,11 +6,16 @@ include_once('../include/session.php');
 require_once '../../src/App/Manager/AllManager.php';
 require_once '../../src/App/Manager/LanguageManager.php';
 require_once '../../src/App/Entity/Language.php';
+require_once '../../src/App/Entity/IntCode.php';
+require_once '../../src/App/Manager/CodeManager.php';
+
 
 //on indique l'espace de nom des classes utilisées
 
 use App\Entity\Language;
+use App\Entity\IntCode;
 use App\Manager\LanguageManager;
+use App\Manager\CodeManager;
 
 //recuperer les codes
 
@@ -23,6 +28,7 @@ use App\Manager\LanguageManager;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
 
@@ -92,6 +98,9 @@ use App\Manager\LanguageManager;
               
             }
         }
+
+        
+       
             ?>
 
 

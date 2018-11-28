@@ -1,12 +1,23 @@
 /****/
 /*******************general***************/
 /****/
-
-h1{
-    color: #e80041!important;
+*{
+    font-family: 'Roboto', sans-serif;
 }
-p{
-    color: #34375b!important;
+.backimg{
+    width: 100%;
+    height: 90vh;
+    background-image: url(../img/imgindex.jpg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h1{
+    color:#DBDCE6!important;
+    text-shadow: 1px 2px 1px #000;
+}
+.creaForm p, .creaForm a, .createUser a, .createUser p{
+    color: #DBDCE6!important;
 }
 .creaForm, .createUser{
     position: absolute;
@@ -15,15 +26,16 @@ p{
      right: 0;
      bottom: 0;
      left: 0;
-    background:white;
+    background-image: url();
     width: 50%;
     padding: 20px;
-    border: 2px solid #e80041;
+    
     min-width: 300px;
 }
-.creaForm h1{
+.creaForm h1, .creaForm p{
     text-align: center;
 }
+
 .creaForm form{
     width: 45%;
     min-width: 230px;
@@ -32,6 +44,25 @@ p{
 .creaForm form input{
     width: 100%;
     min-width: 230px;
+}
+
+/****/
+/******************create user.php**************/
+/****/
+
+ .logo{
+     float: left;
+    width: 250px;
+    margin: auto;
+}
+.logo img{
+    width: 250px;
+}
+.help p{
+    color: #e80041!important;
+    width: 350px;
+    margin: 0;
+    font-size: 5em;
 }
 /****/
 /*******************header***************/
@@ -115,11 +146,14 @@ main{
 .langVignette {
     text-align: center;
     width: 20%;
+    height:400px;
+    min-height: 120px;
     min-width: 300px;
     border: 2px solid #e80041;
     margin: 15px;
     padding: 15px 0;
     color: #e80041;
+    background: #f3f3f3;
 }
 
 .band{
@@ -127,6 +161,13 @@ main{
     height: 75px;
     background: #e80041;
     border: 1px solid #e80041;
+}
+
+.imglang{
+    margin: 10px auto;
+    padding:10px;
+    border: 1px solid #DBDCE6;
+    border-radius: 15px;
 }
 
 /****/
@@ -173,7 +214,7 @@ main{
     text-align: center;
 }
 .profilUser,.codeUser,.profilCode h2{
-    background:white;
+    background:#f3f3f3;
     margin: 10px;
     border: 2px solid #e80041;
     padding: 10px;
@@ -185,11 +226,24 @@ main{
 /******************formcodeupdate.php**************/
 /****/
 .formCodeUpdate{
-    background:white;
+    background:#f3f3f3;
     width: 50%;
-    margin:auto;
+    min-width: 300px;
+    margin:20px auto!important;
     padding: 20px;
     border: 2px solid #e80041;
+}
+.retour{
+    text-align: center;
+    background: #f3f3f3!important;
+    width: 30%;
+    min-width: 250px;
+    padding: 10px;
+    margin: auto;
+    border: 2px solid #e80041!important;
+}
+.retour a{
+    color: #34375b;
 }
 /****/
 /******************formcode.php**************/
@@ -202,7 +256,7 @@ main{
 }
 
 .descriptionCode, #formCode{
-    background: white;
+    background: #f3f3f3;
     border: 2px solid #e80041!important;
     margin-bottom: 30px;
 }
@@ -229,10 +283,10 @@ label {
     width: 50%;
     min-width: 450px;
     margin:10px auto;
-    background: white;
+    background: #f3f3f3;
     border: 2px solid #e80041;
     text-align: center;
-    color: #e80041;
+    color: #e80041!important;
 }
 
 /****/
@@ -246,13 +300,16 @@ label {
 }
 
 .codeLang {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
     border: 2px solid #e80041;
     padding: 10px;
     width: 350px;
     min-width: 200px;
-    height: 210px;
+    height:300px;
     margin: 10px;
-    background: white;
+    background: #f3f3f3;
     color: #ece8e8;
     text-align: center;
 }
@@ -281,7 +338,7 @@ label {
     padding: 10px;
     text-align: justify;
     width: 40%;
-    background: white;
+    background: #f3f3f3;
     border: 2px solid #e80041;
 }
 
