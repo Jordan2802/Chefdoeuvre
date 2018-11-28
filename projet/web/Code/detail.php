@@ -28,6 +28,7 @@ $detail = $codeManager->read($_POST['idCode']);
         crossorigin="anonymous">
     <link href="../css/prism.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/media.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <title>
@@ -40,7 +41,7 @@ $detail = $codeManager->read($_POST['idCode']);
         <?php include('../include/header.php'); ?>
     </header>
     <main>
-        <div class="blocDetail d-flex justify-content-around ">
+        <div class="blocDetail  ">
             <div class="descDetail">
                 <h2>
                     <?=$detail['Titre_code'].'<br>';?>

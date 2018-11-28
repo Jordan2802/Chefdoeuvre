@@ -13,6 +13,7 @@ include('../Language/readAllLanguage.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/media.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -53,6 +54,7 @@ include('../Language/readAllLanguage.php');
             </a>
         </div>
         <div class="band"></div>
+        <h1 class="accueil-titre">Liste des langages</h1>
         <div class="lang d-flex justify-content-around">
             <?php foreach($languages as $language => $value):
             $idlanguage = $value['ID_language'];
@@ -72,13 +74,6 @@ include('../Language/readAllLanguage.php');
             </div>
             <?php endforeach; ?>
         </div>
-
-
-
-
-
-
-
 
     </main>
 

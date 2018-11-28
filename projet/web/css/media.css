@@ -1,0 +1,52 @@
+@media only screen and (max-width: 550px) {
+
+    h1,
+    .titreFormC, h1 #titreCode {
+        font-size: 2.8rem;
+    }
+    
+    .help p {
+        font-size: 3em;
+    }
+
+    form input {
+        height: 40px;
+        margin: 0 0 10px 0;
+        width: 100%;
+        border: none;
+    }
+
+    .formCo {
+        padding: 0 10px;
+    }
+
+    .descriptionCode,
+    #formCode,
+    .titreFormC {
+        min-width: 300px;
+    }
+
+    
+    .band,.carousel{
+        display:none;
+    }
+
+}
+
+@media only screen and (max-width: 990px) {
+
+    .codeDetail,
+    .descDetail {
+        
+        flex: 1;
+    }
+    .retour, .formCodeUpdate{
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 991px) {
+
+    .retour, .formCodeUpdate{
+        width: 50%;
+    }
+}

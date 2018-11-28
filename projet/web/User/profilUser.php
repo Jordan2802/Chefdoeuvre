@@ -75,16 +75,16 @@ $user = $userManager->read($_SESSION['id']);
         
     </div>
     <div class="profilCode">
-        <h2>Liste des Help'Codes</h2>
+        <h1>Liste des Help'Codes</h1>
         <?php 
         $codeManager = new CodeManager();
         $idUser = $codeManager->codeUser($_SESSION['id']);
         
         foreach ($idUser as $key => $value) { ?>
             <div class="codeUser ">
-                <h1 id="titreCode">
+                <h2 id="titreCode">
                     <?= $value['Titre_code'] ?>
-                </h1> <br>
+                </h2> <br>
                 <form action="../Code/formCodeUpdate.php" method="post">
                     <input type="hidden" name="idCode" value="<?= $value['ID_code'] ?>">
                     <input type="hidden" name="idLanguage" value="<?= $value['ID_language'] ?>">

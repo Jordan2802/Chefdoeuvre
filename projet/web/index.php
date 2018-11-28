@@ -11,7 +11,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/conexion.css">
+    <link rel="stylesheet" href="css/connexion.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/media.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Help'Code</title>
 </head>
